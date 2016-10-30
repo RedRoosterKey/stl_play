@@ -46,7 +46,7 @@ module lockLid() {
     difference() {
         basicLid(25, 24, 4, thickness);
         translate([-1.5, -24-12-4*thickness, thickness+(thickness-2)/2])
-            %lockBarHole();
+            lockBarHole();
     }
 }
 
