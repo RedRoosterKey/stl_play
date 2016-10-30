@@ -1,7 +1,7 @@
 use <../modules/basicBox.scad>
 
 $fn=50;
-thickness=4;
+thickness=3;
 
 difference() {
     basicBox(25, 24, 4, thickness);
