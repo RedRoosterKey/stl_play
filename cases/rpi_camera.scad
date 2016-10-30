@@ -1,31 +1,37 @@
 use <../modules/basicBox.scad>
 
 $fn=50;
-thickness=3;
+thickness=2;
+
+overallX=25;
+overallY=23.862;
+overallZ=4;
+distanceFromCameraToBottom=9.462;
 
 difference() {
-    basicBox(25, 24, 4, thickness);
+    basicBox(overallX, overallY, overallZ, thickness);
     union() {
         // camera hole
-        translate([0, 24/2-2-12.5, -1])
+        translate([0, -overallY/2+distanceFromCameraToBottom, -1])
             cylinder(d=8, h=thickness+2);
         // cable slit
-        translate([-8, -24/2-thickness-1, 4+thickness])
+        translate([-8, -overallY/2-thickness-1, overallZ+thickness])
             cube([16, thickness+2, 1]);
         // lockBar Hole
-        translate([-1.5, -24/2-thickness-1, 4+3*thickness-2-(thickness-2)/2])
-            lockBarHole();
+        translate([-1.5, -overallY/2-thickness-1, overallZ+3*thickness-thickness/2*0.95-thickness/3])
+            %lockBarHole();
     }
 }
 
 // mounting pins
-translate([-21/2, 24/2-2-12.5, thickness])
+widthBetweenHoles=21;
+translate([-widthBetweenHoles/2, -overallY/2+distanceFromCameraToBottom, thickness])
     2mmMountPoint();
-translate([21/2, 24/2-2-12.5, thickness])
+translate([widthBetweenHoles/2, -overallY/2+distanceFromCameraToBottom, thickness])
     2mmMountPoint();
-translate([-21/2, 24/2-2, thickness])
+translate([-widthBetweenHoles/2, overallY/2-2, thickness])
     2mmMountPoint();
-translate([21/2, 24/2-2, thickness])
+translate([widthBetweenHoles/2, overallY/2-2, thickness])
     2mmMountPoint();
     
 module 2mmMountPoint() {
@@ -33,25 +39,25 @@ module 2mmMountPoint() {
 }
 
 module lockBar() {
-    translate([-2, 24+thickness*2, 0])
-        cube([6, 2, 2]);
-    cube([2, 24+2+thickness*2, 1]);
+    translate([-3+3*0.95/2, overallY+thickness*2, 0])
+        cube([6, thickness, 2]);
+    cube([3*0.95, overallY+2+thickness*2, thickness/2*0.95]);
 }
 
 module lockBarHole() {
-    cube([3, 24+2+thickness*2, 2]);
+    cube([3, overallY+2+thickness*2, thickness/2]);
 }
 
 module lockLid() {
     difference() {
-        basicLid(25, 24, 4, thickness);
-        translate([-1.5, -24-12-4*thickness, thickness+(thickness-2)/2])
-            lockBarHole();
+        basicLid(overallX, overallY, overallZ, thickness);
+        translate([-1.5, -overallY-overallY/2-4*thickness-1, thickness+thickness/3])
+            %lockBarHole();
     }
 }
 
 lockLid();
 
-translate([25/2+thickness+3, -24/2-thickness, 0]) {
+translate([overallX/2+thickness+3, -overallY/2-thickness, 0]) {
     lockBar();
 }
