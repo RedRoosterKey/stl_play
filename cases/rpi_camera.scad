@@ -19,7 +19,7 @@ difference() {
             cube([16, thickness+2, 1]);
         // lockBar Hole
         translate([-1.5, -overallY/2-thickness-1, overallZ+3*thickness-thickness/2*0.95-thickness/3])
-            %lockBarHole();
+            lockBarHole();
     }
 }
 
@@ -52,7 +52,7 @@ module lockLid() {
     difference() {
         basicLid(overallX, overallY, overallZ, thickness);
         translate([-1.5, -overallY-overallY/2-4*thickness-1, thickness+thickness/3])
-            %lockBarHole();
+            lockBarHole();
     }
 }
 
