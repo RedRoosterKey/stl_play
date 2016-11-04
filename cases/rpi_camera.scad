@@ -1,12 +1,14 @@
 use <../modules/basicBox.scad>
 
 $fn=50;
-thickness=4;
+thickness=5;
 
 overallX=25+1;
 overallY=23.862+1;
 overallZ=4;
 distanceFromCameraToBottom=9.462;
+
+cableDistance=18;
 
 difference() {
     basicBox(overallX, overallY, overallZ, thickness);
@@ -15,11 +17,12 @@ difference() {
         translate([0, -overallY/2+distanceFromCameraToBottom, -1])
             cylinder(d=8, h=thickness+2);
         // cable slit
-        translate([-8, -overallY/2-thickness-1, overallZ+thickness])
-            cube([16, thickness+2, 1]);
+        translate([-cableDistance/2, -overallY/2-thickness-1, overallZ+thickness])
+            cube([cableDistance, thickness+2, overallZ+2*thickness]);
         // lockBar Hole
-        translate([-1.5, -overallY/2-thickness-1, overallZ+3*thickness-thickness/2*0.95-thickness/3])
-            lockBarHole();
+        rotate(90, [0, 0, 1])
+            translate([-1.5, -overallY/2-thickness-1, overallZ+3*thickness-thickness/2*0.95-thickness/3])
+                lockBarHole();
     }
 }
 
