@@ -3,7 +3,7 @@ use <../modules/hullBox.scad>
 innerX=35;
 innerY=18;
 innerZ=5;
-thickness=1;
+thickness=2;
 
 usbFemaleX=15;
 usbFemaleY=13.5;
@@ -20,7 +20,7 @@ difference() {
             cube([usbFemaleX, usbFemaleY, usbFemaleZ]);
         translate([-innerX/2-thickness-1, -usbMaleY/2, thickness])
             cube([usbMaleX, usbMaleY, usbMaleZ]);
-        translate([-innerX/2-2, -innerY/2, thickness+1])
-            cube([innerX+1, innerY, 1]);
+        translate([-innerX/2-2, -innerY/2, thickness])
+            cube([innerX+1, innerY, 2]);
     }
 }

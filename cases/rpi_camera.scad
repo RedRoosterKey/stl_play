@@ -1,10 +1,10 @@
 use <../modules/basicBox.scad>
 
 $fn=50;
-thickness=2;
+thickness=4;
 
-overallX=25;
-overallY=23.862;
+overallX=25+1;
+overallY=23.862+1;
 overallZ=4;
 distanceFromCameraToBottom=9.462;
 
@@ -45,6 +45,7 @@ module lockBar() {
 }
 
 module lockBarHole() {
+    
     cube([3, overallY+2+thickness*2, thickness/2]);
 }
 

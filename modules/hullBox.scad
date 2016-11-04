@@ -35,8 +35,8 @@ module hullLid(innerX, innerY, innerZ, thickness) {
     translate([-innerX/2-thickness, -innerY/2-thickness, 0]) {
         translate([0, -innerY-thickness-thickness-thickness, 0]) {
             hullCube(innerX+2*thickness, innerY+2*thickness, thickness, thickness);
-            translate([thickness+1, thickness+1, 0])
-                hullCube(innerX-2, innerY-2, thickness*2, thickness);
+            translate([thickness, thickness, 0])
+                hullCube(innerX, innerY, thickness*2, thickness);
         }
     }
 }
