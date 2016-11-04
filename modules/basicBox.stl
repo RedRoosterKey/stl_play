@@ -279,20 +279,6 @@ solid OpenSCAD_Model
       vertex 17 -38 0
     endloop
   endfacet
-  facet normal 0 1 -0
-    outer loop
-      vertex 17 -14 0
-      vertex -17 -14 2
-      vertex 17 -14 2
-    endloop
-  endfacet
-  facet normal 0 1 0
-    outer loop
-      vertex -17 -14 2
-      vertex 17 -14 0
-      vertex -17 -14 0
-    endloop
-  endfacet
   facet normal 0 0 -1
     outer loop
       vertex -17 -38 0
@@ -319,6 +305,20 @@ solid OpenSCAD_Model
       vertex 17 -38 2
       vertex -17 -38 0
       vertex 17 -38 0
+    endloop
+  endfacet
+  facet normal 0 1 -0
+    outer loop
+      vertex 17 -14 0
+      vertex -17 -14 2
+      vertex 17 -14 2
+    endloop
+  endfacet
+  facet normal 0 1 0
+    outer loop
+      vertex -17 -14 2
+      vertex 17 -14 0
+      vertex -17 -14 0
     endloop
   endfacet
   facet normal -1 0 0

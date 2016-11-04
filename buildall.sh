@@ -11,7 +11,7 @@ do
            for file in *.scad
            do
                base=$(basename -s .scad $file)
-               openscad --render -o $base.stl $file
+               openscad -o $base.stl $file
            done
            popd
     fi
