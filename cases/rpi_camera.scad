@@ -1,7 +1,7 @@
 use <../modules/basicBox.scad>
 
 $fn=50;
-thickness=5;
+thickness=4;
 
 overallX=25+1;
 overallY=23.862+1;
