@@ -16,13 +16,11 @@ difference() {
         // camera hole
         translate([0, -overallY/2+distanceFromCameraToBottom, -1])
             cylinder(d=8, h=thickness+2);
+        translate([0, -overallY/2+distanceFromCameraToBottom, thickness+2])
+            cube([8, 8, 8], true);
         // cable slit
         translate([-cableDistance/2, -overallY/2-thickness-1, overallZ+thickness])
             cube([cableDistance, thickness+2, overallZ+2*thickness]);
-        // lockBar Hole
-        rotate(90, [0, 0, 1])
-            translate([-1.5, -overallY/2-thickness-1, overallZ+3*thickness-thickness/2*0.95-thickness/3])
-                lockBarHole();
     }
 }
 
@@ -41,27 +39,4 @@ module 2mmMountPoint() {
     cylinder(d=2, h=2);
 }
 
-module lockBar() {
-    translate([-3+3*0.95/2, overallY+thickness*2, 0])
-        cube([6, thickness, 2]);
-    cube([3*0.95, overallY+2+thickness*2, thickness/2*0.95]);
-}
-
-module lockBarHole() {
-    
-    cube([3, overallY+2+thickness*2, thickness/2]);
-}
-
-module lockLid() {
-    difference() {
-        basicLid(overallX, overallY, overallZ, thickness);
-        translate([-1.5, -overallY-overallY/2-4*thickness-1, thickness+thickness/3])
-            lockBarHole();
-    }
-}
-
-lockLid();
-
-translate([overallX/2+thickness+3, -overallY/2-thickness, 0]) {
-    lockBar();
-}
+basicLid(overallX, overallY, overallZ, thickness);
