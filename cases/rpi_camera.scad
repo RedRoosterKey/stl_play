@@ -36,7 +36,7 @@ translate([widthBetweenHoles/2, overallY/2-2, thickness])
     2mmMountPoint();
     
 module 2mmMountPoint() {
-    cylinder(d=2, h=2);
+    cylinder(d=1.5, h=2);
 }
 
 basicLid(overallX, overallY, overallZ, thickness);
